@@ -1,0 +1,11 @@
+th,.bodyOfSortableTable td{
+   text-align: center;
+}
+
+.activeTitle{
+   background-color: grey;
+}
+
+th[data-filter-value]{
+   cursor: pointer;
+}
