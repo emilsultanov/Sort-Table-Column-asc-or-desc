@@ -9,3 +9,50 @@ th,.bodyOfSortableTable td{
 th[data-filter-value]{
    cursor: pointer;
 }
+
+.pagination{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 10px;
+}
+
+.pagination__btn{
+   border: 1.2px solid black;
+   outline-style: none;
+   border-radius: 5px;
+   background-color: white;
+   font-weight: bold;
+   padding: 5px 10px;
+   transition: all 0.3s ease;
+}
+
+.pagination__list{
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+   display: inline-flex;
+   justify-content: center;
+}
+
+.pagination__item{
+   border: 1.2px solid black;
+   border-radius: 5px;
+   background-color: white;
+   font-weight: bold;
+   padding: 5px 10px;
+   margin: 0 4px;
+   transition: all 0.3s ease;
+   cursor: pointer;
+
+}
+
+.pagination__btn:hover,.pagination__item:hover{
+   background-color: black;
+   color: white;
+}
+
+.pagination__item_isActive{
+   background-color: black;
+   color: white;
+}

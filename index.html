@@ -9,14 +9,14 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
    <link rel="stylesheet" href="style.css">
-   <title>Hello, world!</title>
+   <title>Pagination table</title>
 </head>
 
 <body>
    <div class="container">
       <div class="row">
          <div class="col-lg-10 mx-auto">
-            <table class="table table-bordered table-dark sortableTable table-striped my-5">
+            <table class="table table-bordered table-dark sortableTable table-striped mt-5">
                <thead>
                   <tr>
                      <th data-filter-value="no">No</th>
@@ -35,6 +35,18 @@
             </table>
          </div>
       </div>
+      <div class="row">
+         <div class="col-lg-6 mx-auto">
+            <div class="pagination">
+               <button class="pagination__btn pagination__btn_prev" data-pagination-direct='prev'>prev</button>
+               <ul class="pagination__list">
+
+               </ul>
+               <button class="pagination__btn pagination__btn_next" data-pagination-direct='next'>next</button>
+            </div>
+
+         </div>
+      </div>
    </div>
 
 
@@ -47,3 +59,11 @@
 </body>
 
 </html>
+
+<!-- 
+<li class="pagination__item pagination__item_isActive">1</li>
+<li class="pagination__item ">2</li>
+<li class="pagination__item ">3</li>
+<li class="pagination__item ">4</li>
+<li class="pagination__item ">5</li>
+<li class="pagination__item ">6</li> -->
