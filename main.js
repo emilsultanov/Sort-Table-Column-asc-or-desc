@@ -166,6 +166,38 @@ function divideData(items, rows_per_page, page) {
 }
 divideData(data, rowsPerPage, 0);
 
+
+let pagination_btns = Array.from(document.querySelectorAll('[data-pagination-direct]'));
+pagination_btns.forEach((btn) => {
+   btn.addEventListener('click', pagination_btn_handler);
+});
+
+function pagination_btn_handler() {
+   let paginationDirect = this.dataset.paginationDirect;
+   if (paginationDirect === 'prev') {
+      for (let i = 0; i < pagination__list.children.length; i++) {
+         if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].previousElementSibling) {
+            pagination__list.children[i].classList.remove('pagination__item_isActive');
+            pagination__list.children[i].previousElementSibling.classList.add('pagination__item_isActive');
+            divideData(data, rowsPerPage, i - 1);
+            break;
+         }
+      }
+   }
+   else {
+      console.log()
+      for (let i = 0; i < pagination__list.children.length; i++) {
+         if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].nextElementSibling) {
+            pagination__list.children[i].classList.remove('pagination__item_isActive');
+            pagination__list.children[i].nextElementSibling.classList.add('pagination__item_isActive');
+            divideData(data, rowsPerPage, i + 1);
+            break;
+         }
+      }
+   }
+}
+
+
 // Update Table Content
 function loadTableContent(filteredData) {
    let table = filteredData.map((item) => {
@@ -240,32 +272,7 @@ function sort__array(arr, filter, type) {
 
 
 
-// let pagination_btns = Array.from(document.querySelectorAll('[data-pagination-direct]'));
-// pagination_btns.forEach((btn) => {
-//    btn.addEventListener('click', pagination_btn_handler);
-// });
 
-// function pagination_btn_handler() {
-//    let paginationDirect = this.dataset.paginationDirect;
-//    if (paginationDirect === 'prev') {
-//       for (let i = 0; i < pagination__list.children.length; i++) {
-//          if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].previousElementSibling) {
-//             pagination__list.children[i].classList.remove('pagination__item_isActive');
-//             pagination__list.children[i].previousElementSibling.classList.add('pagination__item_isActive');
-//             break;
-//          }
-//       }
-//    }
-//    else {
-//       for (let i = 0; i < pagination__list.children.length; i++) {
-//          if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].nextElementSibling) {
-//             pagination__list.children[i].classList.remove('pagination__item_isActive');
-//             pagination__list.children[i].nextElementSibling.classList.add('pagination__item_isActive');
-//             break;
-//          }
-//       }
-//    }
-// }
 
 
 
