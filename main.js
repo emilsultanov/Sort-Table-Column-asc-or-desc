@@ -147,10 +147,8 @@ pagination__list.children[0].classList.add('pagination__item_isActive');
 // Get index of clicked pagination item
 function pagination__item_handler(e) {
    let clickedIndex = Array.from(document.querySelectorAll('.pagination__item')).indexOf(this);
-   Array.from(pagination__list.children).forEach((child) => {
-      child.classList.remove('pagination__item_isActive')
-   });
-   this.classList.add('pagination__item_isActive')
+   Array.from(pagination__list.children).forEach((child) => { child.classList.remove('pagination__item_isActive') });
+   this.classList.add('pagination__item_isActive');
    divideData(data, rowsPerPage, clickedIndex);
 }
 
@@ -168,9 +166,7 @@ divideData(data, rowsPerPage, 0);
 
 
 let pagination_btns = Array.from(document.querySelectorAll('[data-pagination-direct]'));
-pagination_btns.forEach((btn) => {
-   btn.addEventListener('click', pagination_btn_handler);
-});
+pagination_btns.forEach((btn) => { btn.addEventListener('click', pagination_btn_handler); });
 
 function pagination_btn_handler() {
    let paginationDirect = this.dataset.paginationDirect;
@@ -185,7 +181,6 @@ function pagination_btn_handler() {
       }
    }
    else {
-      console.log()
       for (let i = 0; i < pagination__list.children.length; i++) {
          if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].nextElementSibling) {
             pagination__list.children[i].classList.remove('pagination__item_isActive');
