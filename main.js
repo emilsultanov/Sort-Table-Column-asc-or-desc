@@ -1,5 +1,5 @@
 
-const data = [
+const mainData = [
    {
       "no": 1,
       "fullName": "Farid",
@@ -82,7 +82,7 @@ const data = [
       "no": 8,
       "fullName": "Fəlakət",
       "position": "ST",
-      "match": 5,
+      "match": 3,
       "goal": 1,
       "assist": 2,
       "yellowCard": 5,
@@ -91,9 +91,9 @@ const data = [
    },
    {
       "no": 9,
-      "fullName": "Vilka Şirin",
+      "fullName": "Şirin",
       "position": "ST",
-      "match": 5,
+      "match": 8,
       "goal": 1,
       "assist": 2,
       "yellowCard": 5,
@@ -104,7 +104,7 @@ const data = [
       "no": 10,
       "fullName": "Ağsaqqal",
       "position": "ST",
-      "match": 5,
+      "match": 24,
       "goal": 1,
       "assist": 2,
       "yellowCard": 5,
@@ -145,7 +145,7 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 13,
+      "no": 14,
       "fullName": "fezil",
       "position": "YT",
       "match": 11,
@@ -156,7 +156,7 @@ const data = [
       "redCard": 6
    },
    {
-      "no": 1,
+      "no": 15,
       "fullName": "Farid",
       "position": "CMD",
       "age": 29,
@@ -168,7 +168,7 @@ const data = [
       "redCard": 2
    },
    {
-      "no": 2,
+      "no": 16,
       "fullName": "Emil",
       "position": "GK",
       "match": 34,
@@ -179,7 +179,7 @@ const data = [
       "redCard": 5
    },
    {
-      "no": 3,
+      "no": 17,
       "fullName": "Tom",
       "position": "ST",
       "match": 5,
@@ -190,7 +190,7 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 4,
+      "no": 18,
       "fullName": "Jerry",
       "position": "DL",
       "match": 2,
@@ -201,7 +201,7 @@ const data = [
       "redCard": 5
    },
    {
-      "no": 5,
+      "no": 19,
       "fullName": "Alixandro",
       "position": "ST",
       "match": 15,
@@ -212,7 +212,7 @@ const data = [
       "redCard": 64
    },
    {
-      "no": 6,
+      "no": 20,
       "fullName": "Şəmi",
       "position": "ST",
       "match": 85,
@@ -223,7 +223,7 @@ const data = [
       "redCard": 47
    },
    {
-      "no": 7,
+      "no": 21,
       "fullName": "Şöşü",
       "position": "ST",
       "match": 74,
@@ -234,10 +234,10 @@ const data = [
       "redCard": 8
    },
    {
-      "no": 8,
+      "no": 22,
       "fullName": "Fəlakət",
       "position": "ST",
-      "match": 5,
+      "match": 8,
       "goal": 1,
       "assist": 2,
       "yellowCard": 5,
@@ -245,8 +245,8 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 9,
-      "fullName": "Vilka Şirin",
+      "no": 23,
+      "fullName": "Şirin",
       "position": "ST",
       "match": 5,
       "goal": 1,
@@ -256,10 +256,10 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 10,
+      "no": 24,
       "fullName": "Ağsaqqal",
       "position": "ST",
-      "match": 5,
+      "match": 11,
       "goal": 1,
       "assist": 2,
       "yellowCard": 5,
@@ -267,10 +267,10 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 11,
+      "no": 25,
       "fullName": "Əzəmət",
       "position": "ST",
-      "match": 5,
+      "match": 9,
       "goal": 1,
       "assist": 2,
       "yellowCard": 5,
@@ -278,7 +278,7 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 12,
+      "no": 26,
       "fullName": "kdfskdnkj",
       "position": "mt",
       "match": 23,
@@ -289,7 +289,7 @@ const data = [
       "redCard": 84
    },
    {
-      "no": 13,
+      "no": 27,
       "fullName": "fifo",
       "position": "hhh",
       "match": 5,
@@ -300,7 +300,7 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 13,
+      "no": 28,
       "fullName": "fezil",
       "position": "YT",
       "match": 11,
@@ -311,7 +311,7 @@ const data = [
       "redCard": 6
    },
    {
-      "no": 10,
+      "no": 29,
       "fullName": "Ağsaqqal",
       "position": "ST",
       "match": 5,
@@ -322,7 +322,7 @@ const data = [
       "redCard": 4
    },
    {
-      "no": 11,
+      "no": 30,
       "fullName": "Əzəmət",
       "position": "ST",
       "match": 5,
@@ -335,11 +335,11 @@ const data = [
 ];
 
 
-let sliceData;
-let filterType = 'asc';
+let sliceData, filterTitle;
+let filterType = 'mixed';
 let rowsPerPage = 5;
 let pagination__list = document.querySelector('.pagination__list');
-let pagination_items_count = Math.ceil(data.length / rowsPerPage);
+let pagination_items_count = Math.ceil(mainData.length / rowsPerPage);
 
 
 // Create dnyamic pagination items
@@ -362,7 +362,7 @@ function pagination__item_handler(e) {
    let clickedIndex = Array.from(document.querySelectorAll('.pagination__item')).indexOf(this);
    Array.from(pagination__list.children).forEach(child => child.classList.remove('pagination__item_isActive'));
    this.classList.add('pagination__item_isActive');
-   divideData(data, rowsPerPage, clickedIndex);
+   divideData(mainData, rowsPerPage, clickedIndex);
 }
 
 
@@ -373,9 +373,25 @@ function divideData(items, rows_per_page, page) {
    let end = start + rows_per_page;
    let partOfData = items.slice(start, end);
    sliceData = partOfData;
-   loadTableContent(partOfData);
+
+
+   if (filterType === 'mixed') {
+      loadTableContent(sliceData);
+   }
+   else if (filterType === 'desc') {
+      let sorted__array = sort__array(sliceData, filterTitle, 'asc');
+      loadTableContent(sorted__array);
+   }
+   else if (filterType === 'asc') {
+      let sorted__array = sort__array(sliceData, filterTitle, 'desc');
+      loadTableContent(sorted__array);
+   }
+
 }
-divideData(data, rowsPerPage, 0);
+divideData(mainData, rowsPerPage, 0);
+
+
+
 
 
 
@@ -416,7 +432,7 @@ function pagination_btn_handler() {
          if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].previousElementSibling) {
             pagination__list.children[i].classList.remove('pagination__item_isActive');
             pagination__list.children[i].previousElementSibling.classList.add('pagination__item_isActive');
-            divideData(data, rowsPerPage, i - 1);
+            divideData(mainData, rowsPerPage, i - 1);
             break;
          }
       }
@@ -427,7 +443,7 @@ function pagination_btn_handler() {
          if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].nextElementSibling) {
             pagination__list.children[i].classList.remove('pagination__item_isActive');
             pagination__list.children[i].nextElementSibling.classList.add('pagination__item_isActive');
-            divideData(data, rowsPerPage, i + 1);
+            divideData(mainData, rowsPerPage, i + 1);
             break;
          }
       }
@@ -448,14 +464,20 @@ function filterColumn(e) {
    let lastActiveElements = document.querySelectorAll('th[data-filter-value]');
    lastActiveElements.forEach(element => element.classList.remove('activeTitle'));
    e.target.classList.add('activeTitle');
-   sort__array(sliceData, e.target.dataset.filterValue, filterType);
+
+   filterTitle = e.target.dataset.filterValue;
+   let sort__data = sort__array(sliceData, filterTitle, filterType);
+
+   loadTableContent(sort__data);
+
 };
 
 
 // Sort Table Content
 function sort__array(arr, filter, type) {
 
-   if (type == 'asc') {
+   if (type === 'mixed' || type === 'asc') {
+      console.log(type)
       for (let i = 0; i < arr.length; i++) {
          for (let j = arr.length - 1; j > i; j--) {
             if (arr[i][filter] > arr[j][filter]) {
@@ -465,10 +487,11 @@ function sort__array(arr, filter, type) {
             }
          }
       }
-      loadTableContent(arr);
       filterType = 'desc';
+      return arr;
    }
-   else {
+   else if (type === 'desc') {
+      console.log(type)
       for (let i = 0; i < arr.length; i++) {
          for (let j = arr.length - 1; j > i; j--) {
             if (arr[i][filter] < arr[j][filter]) {
@@ -478,8 +501,8 @@ function sort__array(arr, filter, type) {
             }
          }
       }
-      loadTableContent(arr);
       filterType = 'asc';
+      return arr;
    }
 };
 
