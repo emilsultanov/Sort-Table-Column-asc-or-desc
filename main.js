@@ -337,22 +337,24 @@ const mainData = [
 
 let sliceData, filterTitle;
 let filterType = 'mixed';
-let rowsPerPage = 5;
+let rowsPerPage = 5, pagesPerPagination = 3;
 let pagination__list = document.querySelector('.pagination__list');
 let pagination_items_count = Math.ceil(mainData.length / rowsPerPage);
 
 
+
 // Create dnyamic pagination items
-for (let i = 1; i <= pagination_items_count; i++) {
+for (let i = 0; i < pagination_items_count; i++) {
 
    let pagination_item = document.createElement('li');
-   let node = document.createTextNode(i);
+   let node = document.createTextNode(i + 1);
 
    pagination_item.appendChild(node);
    pagination_item.classList.add('pagination__item');
    pagination_item.addEventListener('click', pagination__item_handler);
    pagination__list.appendChild(pagination_item);
-}
+
+};
 pagination__list.children[0].classList.add('pagination__item_isActive');
 
 
@@ -438,7 +440,6 @@ function pagination_btn_handler() {
       }
    }
    else {
-
       for (let i = 0; i < pagination__list.children.length; i++) {
          if (pagination__list.children[i].classList.contains('pagination__item_isActive') && pagination__list.children[i].nextElementSibling) {
             pagination__list.children[i].classList.remove('pagination__item_isActive');
@@ -469,7 +470,6 @@ function filterColumn(e) {
    let sort__data = sort__array(sliceData, filterTitle, filterType);
 
    loadTableContent(sort__data);
-
 };
 
 

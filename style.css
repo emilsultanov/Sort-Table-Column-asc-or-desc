@@ -1,9 +1,13 @@
+body{
+   background-color: #f39c12;
+}
+
 th,.bodyOfSortableTable td{
    text-align: center;
 }
 
 .activeTitle{
-   background-color: grey;
+   background-color: #d35400;
 }
 
 th[data-filter-value]{
@@ -48,11 +52,11 @@ th[data-filter-value]{
 }
 
 .pagination__btn:hover,.pagination__item:hover{
-   background-color: black;
+   background-color: #d35400;
    color: white;
 }
 
 .pagination__item_isActive{
-   background-color: black;
+   background-color: #d35400;
    color: white;
 }
