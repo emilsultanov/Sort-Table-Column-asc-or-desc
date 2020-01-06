@@ -1791,7 +1791,7 @@ for (button of pagination__buttons) {
    button.addEventListener('click', pagination__buttons_hundler);
 }
 
-// Next, Prev buttons handler
+// Next, Prev buttons handler.
 function pagination__buttons_hundler() {
 
    let pagination__direct = this.dataset.paginationDirect;
@@ -1976,6 +1976,7 @@ function updatePagination(arr, i, direction, length, pagesCount) {
          pagination__list.insertBefore(pagination__item, lastChild);
       }
       pagination__list.children[arr.length + 1].classList.add('pagination__item_active');
+
    }
 
 };
